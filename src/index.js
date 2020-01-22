@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { GlobalStyle } from "@buffetjs/styles";
+import { GlobalStyle, Fonts } from "@buffetjs/styles";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./containers/App";
+import plugins from "./plugins";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <BrowserRouter>
     <GlobalStyle />
-    <App />
+    <Fonts />
+    <App appPlugins={plugins} />
   </BrowserRouter>,
   document.getElementById("root"),
 );
