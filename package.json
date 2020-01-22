@@ -3,15 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@buffetjs/core": "^2.0.0",
+    "@buffetjs/custom": "^2.0.0",
+    "@buffetjs/styles": "^2.0.0",
+    "@buffetjs/utils": "^2.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
-    "styled-components": "^5.0.0"
+    "reactstrap": "^8.4.0",
+    "styled-components": "^5.0.0",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "react-scripts start",
