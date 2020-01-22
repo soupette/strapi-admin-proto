@@ -35,13 +35,13 @@ function Admin() {
   return (
     <Container fluid style={{ paddingTop: 40 }}>
       <Row>
-        <Col md="4">
+        <Col md="2">
           <Menu />
         </Col>
-        <Col md="8">
+        <Col md="10">
           <Switch>
             <Route path="/" component={HomePage} exact />
-            <Route path="/plugins/:pluginId" component={PluginDispatcher} exact />
+            <Route path="/plugins/:pluginId" component={PluginDispatcher} />
             <Route path="/settings" component={SettingsView} />
           </Switch>
         </Col>

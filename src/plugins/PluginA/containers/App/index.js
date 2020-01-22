@@ -7,6 +7,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import EditView from '../EditView';
+import PluginAHomePage from '../PluginAHomePage';
 // import PropTypes from 'prop-types';
 
 function PluginA() {
@@ -15,16 +16,22 @@ function PluginA() {
   return (
     <Container fluid>
       <Row>
-        <Col md="4">
+        <Col md="2">
           <ul>
+            <li>
+              <Link to={`${url}`}>Go to PluginA HomePage</Link>
+            </li>
             <li>
               <Link to={`${url}/edit-view`}>Go to EditView</Link>
             </li>
           </ul>
         </Col>
-        <Switch>
-          <Route path={`${url}/edit-view`} component={EditView} />
-        </Switch>
+        <Col md="10">
+          <Switch>
+            <Route path={`${url}/edit-view`} component={EditView} />
+            <Route path={url} component={PluginAHomePage} />
+          </Switch>
+        </Col>
       </Row>
     </Container>
   );
