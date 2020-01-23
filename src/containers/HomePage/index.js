@@ -1,16 +1,15 @@
 /**
-*
-* HomePage
-*
-*/
+ *
+ * HomePage
+ *
+ */
 import React from 'react';
 // import PropTypes from 'prop-types';
 
 function HomePage() {
-
   return (
     <div>
-      HomePage
+      <p>HomePage</p>
     </div>
   );
 }
