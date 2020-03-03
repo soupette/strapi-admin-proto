@@ -10,6 +10,7 @@ import useAppContext from '../../hooks/useAppContext';
 
 function Menu() {
   const { plugins } = useAppContext();
+
   return (
     <div>
       <ul>
