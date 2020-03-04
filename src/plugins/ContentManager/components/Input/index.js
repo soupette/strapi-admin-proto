@@ -37,6 +37,8 @@ const getInputType = (type = '') => {
       return 'wysiwyg';
     case 'uid':
       return 'uid';
+    case 'timestamp':
+      return 'timestamp';
     default:
       return 'text';
   }

@@ -23,6 +23,7 @@ export default strapi => {
 
   // Register a field during the plugin load
   strapi.registerField({ type: 'json', Component: Json });
+  strapi.registerFields([{ type: 'timestamp', Component: Json }]);
 
   return strapi.registerPlugin(plugin);
 };

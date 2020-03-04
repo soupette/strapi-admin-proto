@@ -28,6 +28,21 @@ class FieldApi {
     this.fields[type] = Component;
   };
 
+  registerFields = fields => {
+    const areFieldsValidWithType = fields.every(obj => obj.type);
+    const areFieldsValidWithComponent = fields.every(obj => obj.Component);
+
+    invariant(areFieldsValidWithType, 'Some fields do not match the format');
+    invariant(
+      areFieldsValidWithComponent,
+      'Some fields do not match the format',
+    );
+
+    fields.forEach(field => {
+      this.registerField(field);
+    });
+  };
+
   removeField = type => {
     invariant(type, 'A type must be provided in order to remove a field');
 

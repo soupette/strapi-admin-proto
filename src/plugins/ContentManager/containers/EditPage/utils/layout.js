@@ -29,6 +29,14 @@ const layout = {
         },
       ],
     ],
+    [
+      [
+        {
+          name: 'created_at',
+          size: 6,
+        },
+      ],
+    ],
   ],
 };
 

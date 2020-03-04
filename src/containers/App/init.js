@@ -13,6 +13,7 @@ function init({ initialState, appPlugins, strapi }) {
         const plugin = currentPluginFn({
           registerPlugin,
           registerField: strapi.fieldApi.registerField,
+          registerFields: strapi.fieldApi.registerFields,
         });
 
         acc[plugin.id] = plugin;
