@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 // Simulate the pluginLoaded from 'strapi-admin/admin/src/app.js'
-function init({ initialState, appPlugins }) {
+function init({ initialState, appPlugins, strapi }) {
   return initialState.update('plugins', () => {
     return fromJS(
       Object.keys(appPlugins).reduce((acc, current) => {
@@ -10,7 +10,10 @@ function init({ initialState, appPlugins }) {
         };
 
         const currentPluginFn = appPlugins[current];
-        const plugin = currentPluginFn({ registerPlugin });
+        const plugin = currentPluginFn({
+          registerPlugin,
+          registerField: strapi.fieldApi.registerField,
+        });
 
         acc[plugin.id] = plugin;
 

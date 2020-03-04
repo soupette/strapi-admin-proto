@@ -9,6 +9,7 @@ import pluginId from '../../pluginId';
 
 const Initializer = () => {
   const { updatePlugin } = useAppContext();
+
   const ref = useRef();
   ref.current = updatePlugin;
 

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { get, toLower } from 'lodash';
 import { Inputs } from '@buffetjs/custom';
+import useStrapi from '../../../../hooks/useStrapi';
 
 const getInputType = (type = '') => {
   switch (toLower(type)) {
@@ -42,6 +43,10 @@ const getInputType = (type = '') => {
 };
 
 const Input = ({ layout, name, onChange, value }) => {
+  const {
+    strapi: { fieldApi },
+  } = useStrapi();
+
   const attribute = useMemo(
     () => get(layout, ['schema', 'attributes', name], {}),
     [layout, name],
@@ -63,6 +68,8 @@ const Input = ({ layout, name, onChange, value }) => {
       onChange={onChange}
       disabled={disabled}
       value={value}
+      // Retrieve fields
+      customInputs={fieldApi.getFields()}
     />
   );
 };
