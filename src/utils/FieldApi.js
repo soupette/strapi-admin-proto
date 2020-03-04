@@ -20,23 +20,13 @@ class FieldApi {
 
     invariant(Component, 'A Component must be provided');
     invariant(type, 'A type must be provided');
-    invariant(
-      this.fields[type] === undefined,
-      'A similar field already exists',
-    );
+    invariant(this.fields[type] === undefined, 'A similar field already exists');
 
     this.fields[type] = Component;
   };
 
   registerFields = fields => {
-    const areFieldsValidWithType = fields.every(obj => obj.type);
-    const areFieldsValidWithComponent = fields.every(obj => obj.Component);
-
-    invariant(areFieldsValidWithType, 'Some fields do not match the format');
-    invariant(
-      areFieldsValidWithComponent,
-      'Some fields do not match the format',
-    );
+    invariant(Array.isArray(fields), 'An array is required');
 
     fields.forEach(field => {
       this.registerField(field);
