@@ -1,18 +1,17 @@
+import { cloneDeep } from 'lodash';
 import invariant from 'invariant';
 
 class FieldApi {
-  constructor() {
-    this.fields = {};
-  }
+  fields = {};
 
   getField = type => {
     invariant(type, 'A type must be provided');
 
-    return this.fields[type] || null;
+    return cloneDeep(this.fields[type]) || null;
   };
 
   getFields = () => {
-    return this.fields;
+    return cloneDeep(this.fields);
   };
 
   registerField = field => {
@@ -25,14 +24,6 @@ class FieldApi {
     this.fields[type] = Component;
   };
 
-  registerFields = fields => {
-    invariant(Array.isArray(fields), 'An array is required');
-
-    fields.forEach(field => {
-      this.registerField(field);
-    });
-  };
-
   removeField = type => {
     invariant(type, 'A type must be provided in order to remove a field');
 
@@ -40,4 +31,6 @@ class FieldApi {
   };
 }
 
-export default FieldApi;
+export default () => {
+  return new FieldApi();
+};

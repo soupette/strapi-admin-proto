@@ -1,9 +1,9 @@
 import FieldApi from './FieldApi';
 
 class Strapi {
-  constructor() {
-    this.fieldApi = new FieldApi();
-  }
+  fieldApi = FieldApi();
 }
 
-export default Strapi;
+export default () => {
+  return new Strapi();
+};

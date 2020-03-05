@@ -3,7 +3,7 @@
  * App
  *
  */
-import React, { useReducer, useRef } from 'react';
+import React, { useReducer } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Strapi from '../../utils/Strapi';
@@ -15,9 +15,10 @@ import StrapiProvider from '../StrapiProvider';
 import reducer, { initialState } from './reducer';
 import init from './init';
 
+const strapi = Strapi();
+
 function App({ appPlugins }) {
   // Initialize strapi api
-  const strapi = useRef(new Strapi());
 
   const [reducerState, dispatch] = useReducer(
     reducer,
@@ -25,7 +26,7 @@ function App({ appPlugins }) {
       initialState,
       appPlugins,
       // Pass it to the init function if you want to use directly the plugin load
-      strapi: strapi.current,
+      strapi: strapi,
     },
     init,
   );
@@ -43,7 +44,7 @@ function App({ appPlugins }) {
 
   return (
     <AppProvider plugins={plugins} updatePlugin={updatePlugin}>
-      <StrapiProvider strapi={strapi.current}>
+      <StrapiProvider strapi={strapi}>
         <Switch>
           <Route path="/auth/:authType" component={AuthPage} />
           <PrivateRoute path="/" component={Admin} />
